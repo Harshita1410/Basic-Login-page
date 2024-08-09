@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    font-family: 'Merriweather';
+}
+
+
+
+.container {
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    row-gap: 10px;
+    background-color: lightgrey;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-image: fill 0 linear-gradient(#0001, #000);
+    z-index: 2;
+    animation: coverScreen 4s ease-out forwards;
+}
+
+.im {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    filter: blur(5px);
+}
+
+
+.text {
+    position: absolute;
+    color: rgb(233, 210, 210);
+    font-size: 70px;
+    text-align: center;
+    opacity: 0;
+    animation: fadeInText 3s ease-out forwards 1s;
+}
+
+
+
+.loginbox {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 10px lightgrey;
+    top: 20%;
+    height: 60vh;
+    width: 20%;
+    left: 70%;
+    border-radius: 15px;
+    border: 1px solid black;
+}
+
+
+.loginbox input {
+    margin-bottom: 25px;
+    width: 200px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 25px;
+    border: none;
+    background: whitesmoke;
+}
+
+.loginbox input:focus {
+    border: none;
+    outline: none;
+}
+
+hr {
+    margin-bottom: 20px;
+}
+
+button {
+    width: 50%;
+    padding: 10px;
+    border-radius: 25px;
+    border: none;
+    background: rgb(46, 65, 240);
+    margin-bottom: 30px;
+    color: white;
+
+}
+
+button:hover {
+    background-color: lightblue;
+    cursor: pointer;
+}
+
+.box1 a:visited,
+.box2 a:visited {
+    color: blue;
+    text-decoration: underline;
+}
+
+.box1 a:hover,
+.box2 a:hover {
+    color: lightblue;
+    text-decoration: underline;
+}
+
+.boxes {
+    display: flex;
+    flex-direction: column;
+}
+
+.box1,
+.box2 {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: 200px;
+    /* Adjust as needed */
+    background-color: whitesmoke;
+    padding: 5px;
+    margin-bottom: 25px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    padding-left: 35px;
+
+}
+
+.box1 img,
+.box2 svg {
+    width: 30px;
+    /* Adjust as needed */
+    height: auto;
+    margin-right: 8px;
+}
+
+
+.box1 a,
+.box2 a {
+    text-decoration: none;
+    color: #333;
+    font-size: 12px;
+
+}
+
+.loginbox p {
+    text-align: center;
+    color: rgb(29, 29, 226);
+    font-size: 9px;
+}
+
+.loginbox p:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.loginbox input:hover {
+    text-decoration: underline;
+    border: none;
+}
+
+.head {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    text-decoration: none;
+    color: blue;
+    font-size: 20px;
+
+}
+
+@keyframes coverScreen {
+    0% {
+        width: 100%;
+        height: 100%;
+        filter: blur(0px);
+    }
+
+    100% {
+        width: 60%;
+        height: 100%;
+        left: 0;
+    }
+}
+
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
