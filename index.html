@@ -13,7 +13,7 @@
 
     <div class="container">
         <div class="image">
-            <img src="food2.jpg" alt="nothing" class="im">
+            <img src="food2.jpeg" alt="nothing" class="im">
             <div class="text">
                 <p><b>Welcome to</b></p>
                 <p><b>Treasure of recipies</b></p>
@@ -24,10 +24,10 @@
 
             <form>
                 <!-- <label for="username">Username: </label> -->
-                <input type="text" name="username" placeholder="Enter your username.." required>
+                <input type="text" name="username" placeholder="Enter your username.." id="usernameInput" required>
                 <br>
                 <!-- <label for="password">Password: </label> -->
-                <input type="password" name="password" placeholder="Enter the correct password.." required>
+                <input type="password" name="password" placeholder="Enter the correct password.." id="passwordInput" required>
                 <hr>
             </form>
 
@@ -93,7 +93,8 @@
                     <a href="gmail.com">Sign-in with gmail</a>
                 </div>
             </div>
-            <button>Login</button>
+            <button id="loginBtn">Login</button>
+
 
 
             <p>Don't have an account?Sign Up</p>
@@ -102,9 +103,46 @@
 
     </div>
     <script>
-       
+      
+      const passwordInput = document.getElementById('passwordInput');
+    const loginBtn = document.getElementById('loginBtn');
 
-        document.querySelectorAll('input').forEach(input => {
+    function validatePassword(password) {
+      let isValid = true;
+
+      if (password.length !== 8) {
+        alert('Password must be exactly 8 characters');
+        isValid = false;
+      }
+
+      if (!/[a-zA-Z]/.test(password)) {
+        alert('Password must contain at least one alphabet');
+        isValid = false;
+      }
+
+      if (!/\d/.test(password)) {
+        alert('Password must contain at least one number');
+        isValid = false;
+      }
+
+      if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password)) {
+        alert('Password must contain at least one symbol');
+        isValid = false;
+      }
+
+      return isValid;
+    }
+
+    loginBtn.addEventListener('click', () => {
+      const password = passwordInput.value;
+      if (validatePassword(password)) {
+        alert('Login successful!');
+      }
+    });
+
+  
+
+  document.querySelectorAll('input').forEach(input => {
             input.addEventListener('focus', function () {
                 this.dataset.placeholder = this.placeholder;
                 this.placeholder = '';
@@ -113,7 +151,10 @@
                 this.placeholder = this.dataset.placeholder;
             });
         });
+        
     </script>
 </body>
 
 </html>
+
+        
